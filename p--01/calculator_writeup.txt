@@ -1,0 +1,15 @@
+1)open eclipse and create a file as filename.java
+
+2)write code  required  for problem
+
+3)Exexute the code 
+
+4)Ask user to enter two numbers as user input using the Scanner Class
+
+5)Take the operation to be performed using the Scanner Class
+
+6)Use logic ( if-lse or switch-case) to select the operation to perform on the two operands.
+
+7)Store the computed value in result.
+
+Print the result

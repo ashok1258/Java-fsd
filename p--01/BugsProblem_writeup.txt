@@ -1,0 +1,8 @@
+1) Start and open your IDLE.
+2) Write a code with some bugs to clear the bugs later.
+          or
+3)Retrive the code from given path.
+4)find the bugs as if the code is having  unwanted code which is not useful.
+5)Clear the bugs and run the code with bug-free.
+6)if it executes succesfuly,stop process.
+7)if not executed ,still haing any bugs continue to step-4.

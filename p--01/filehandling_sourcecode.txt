@@ -1,0 +1,63 @@
+package practicing_mphs;
+
+	import java.io.BufferedReader;
+	import java.io.BufferedWriter;
+	import java.io.FileReader;
+	import java.io.FileWriter;
+	import java.io.IOException;
+	import java.util.Scanner;
+
+	public class FileHandlingExample {
+
+	    public static void main(String[] args) {
+	        // Specify the file name
+	        String fileName = "example.txt";
+
+	        // Write to a file
+	        writeToFile(fileName, "Hello, this is a file handling example.\n");
+
+	        // Read from a file
+	        String content = readFromFile(fileName);
+	        System.out.println("Content read from file:\n" + content);
+
+	        // Append to the file
+	        appendToFile(fileName, "This line is appended to the file.");
+
+	        // Read again after appending
+	        content = readFromFile(fileName);
+	        System.out.println("Content read after appending:\n" + content);
+	    }
+
+	    private static void writeToFile(String fileName, String content) {
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+	            writer.write(content);
+	            System.out.println("Content successfully written to file.");
+	        } catch (IOException e) {
+	            System.err.println("Error writing to file: " + e.getMessage());
+	        }
+	    }
+
+	    private static String readFromFile(String fileName) {
+	        StringBuilder content = new StringBuilder();
+
+	        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                content.append(line).append("\n");
+	            }
+	        } catch (IOException e) {
+	            System.err.println("Error reading from file: " + e.getMessage());
+	        }
+
+	        return content.toString();
+	    }
+
+	    private static void appendToFile(String fileName, String contentToAppend) {
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
+	            writer.write(contentToAppend);
+	            System.out.println("Content successfully appended to file.");
+	        } catch (IOException e) {
+	            System.err.println("Error appending to file: " + e.getMessage());
+	        }
+	    }
+	}

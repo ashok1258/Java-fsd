@@ -1,0 +1,11 @@
+1)Start a new project.
+2)setup required environment
+3)Start a new Maven project.
+4)Write the code which is neccessary for us as a form to display details ofuser.
+5)Run the project with proper environment.
+6)Enter into the web page.
+7)Validate the user credentials.
+8)After succesful login,update account information of user as user required.
+9)If user is not valid,then check user is an authorised employee and check for update user info.
+10)user needs to provide details and requirred feedback and have to submit.
+11)check feedback is submited or not.

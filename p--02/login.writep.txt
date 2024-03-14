@@ -1,0 +1,6 @@
+1)open ide and and create a dynamic web page
+2)write code for login page in javaa servelet page.
+3)create one jsp file with naming  as DASHBORD,jsp
+4)create one page naming as error.jsp to message the user about errors
+5)crreate an xml filein web--inf directory
+6)Run the html page on web server.

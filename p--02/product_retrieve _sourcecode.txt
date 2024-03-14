@@ -1,0 +1,102 @@
+Dataset:
+
+
+public class Dataset {
+
+	CREATE DATABASE IF NOT EXISTS your_database_name;
+	USE your_database_name;
+
+	CREATE TABLE IF NOT EXISTS products (
+	    id INT PRIMARY KEY,
+	    name VARCHAR(255),
+	    price DOUBLE);
+
+	INSERT INTO products (id, name, price) VALUES
+	(1, 'Product 1', 19.99),
+	(2, 'Product 2', 29.99),
+	(3, 'Product 3', 39.99);
+
+}
+
+
+JAVA SERVELET:
+
+import java.io.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.annotation.*;
+import javax.servlet.http.*;
+
+@WebServlet("/ProductServlet")
+public class ProductServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int productId = Integer.parseInt(request.getParameter("productId"));
+
+        try {
+            // JDBC connection code (replace with your database credentials)
+            String jdbcUrl = "jdbc:mysql://localhost:3306/your_database_name";
+            String dbUser = "your_username";
+            String dbPassword = "your_password";
+
+            Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
+
+            // Query to retrieve product details based on ID
+            String query = "SELECT * FROM products WHERE id=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, productId);
+            
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            // Display retrieved product details
+            PrintWriter out = response.getWriter();
+            if (resultSet.next()) {
+                String productName = resultSet.getString("name");
+                double productPrice = resultSet.getDouble("price");
+
+                out.println("<html><body>");
+                out.println("<h2>Product Details:</h2>");
+                out.println("<p>ID: " + productId + "</p>");
+                out.println("<p>Name: " + productName + "</p>");
+                out.println("<p>Price: $" + productPrice + "</p>");
+                out.println("</body></html>");
+            } else {
+                out.println("<html><body>");
+                out.println("<p>Product not found for ID: " + productId + "</p>");
+                out.println("</body></html>");
+            }
+
+            // Close resources
+            resultSet.close();
+            preparedStatement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+
+
+HTML :
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+    <h2>Enter Product ID:</h2>
+    <form action="ProductServlet" method="post">
+        <label for="productId">Product ID:</label>
+        <input type="text" id="productId" name="productId" required>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

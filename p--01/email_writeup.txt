@@ -1,0 +1,11 @@
+1)open eclipse and create a file as filename.java
+
+2)write code using scanner class because  we have to validate the entered Email.
+
+3)check emaild id was valid ?
+
+4)check password is valid ?
+
+5)if any one of them s not valid ,stop process.
+
+Execute the code.

@@ -1,0 +1,83 @@
+SERVELET:
+
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+@WebServlet("/productForm")
+public class ProductFormServlet extends HttpServlet {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Display the form
+        request.getRequestDispatcher("/productForm.jsp").forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Capture form data
+        String productName = request.getParameter("productName");
+        String productPrice = request.getParameter("productPrice");
+
+        // Store the data in request attributes
+        request.setAttribute("productName", productName);
+        request.setAttribute("productPrice", productPrice);
+
+        // Forward to a JSP to display the entered data
+        request.getRequestDispatcher("/displayProduct.jsp").forward(request, response);
+    }
+}
+
+
+
+PRODUCTFORM.JSP:
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Product Form</title>
+</head>
+<body>
+    <form action="productForm" method="post">
+        Product Name: <input type="text" name="productName" required><br>
+        Product Price: <input type="text" name="productPrice" required><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+
+
+
+
+DISPLAYPRODUCT.JSP
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Product Details</title>
+</head>
+<body>
+    <h2>Entered Product Details</h2>
+    <p>Product Name: <%= request.getAttribute("productName") %></p>
+    <p>Product Price: <%= request.getAttribute("productPrice") %></p>
+</body>
+</html>
+
+
+
+WEB.XML
+
+
+<web-app>
+    <servlet>
+        <servlet-name>ProductFormServlet</servlet-name>
+        <servlet-class>your.package.name.ProductFormServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductFormServlet</servlet-name>
+        <url-pattern>/productForm</url-pattern>
+    </servlet-mapping>
+</web-app>

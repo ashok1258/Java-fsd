@@ -1,0 +1,51 @@
+import java.util.Arrays;
+
+public class LongestIncreasingSubsequence {
+
+    public static int[] longestIncreasingSubsequence(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+
+        int n = nums.length;
+        int[] lisLength = new int[n];
+        Arrays.fill(lisLength, 1);
+
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j] && lisLength[i] < lisLength[j] + 1) {
+                    lisLength[i] = lisLength[j] + 1;
+                }
+            }
+        }
+
+        int maxLengthIndex = 0;
+        for (int i = 1; i < n; i++) {
+            if (lisLength[i] > lisLength[maxLengthIndex]) {
+                maxLengthIndex = i;
+            }
+        }
+
+        int length = lisLength[maxLengthIndex];
+        int[] lis = new int[length];
+
+        lis[length - 1] = nums[maxLengthIndex];
+        int j = length - 2;
+
+        for (int i = maxLengthIndex - 1; i >= 0; i--) {
+            if (nums[i] < nums[maxLengthIndex] && lisLength[i] == lisLength[maxLengthIndex] - 1) {
+                lis[j--] = nums[i];
+                maxLengthIndex = i;
+            }
+        }
+
+        return lis;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {10, 22, 9, 33, 21, 50, 41, 60, 80};
+        int[] lis = longestIncreasingSubsequence(nums);
+
+        System.out.println("Longest Increasing Subsequence: " + Arrays.toString(lis));
+    }
+}

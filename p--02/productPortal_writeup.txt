@@ -1,0 +1,19 @@
+1) Start IDE and create a dynamic web project
+
+2)Create a html file under web content with required elements.
+
+3)create a class file under src of  javaResources.
+
+4)create a servelet and instantiate the code required to develop the server.
+
+5)checkwhetheer the xml file is exist or not,if not create a xml file.
+
+6)check the server is available in system.
+
+7)if server not available,go to server and add required version of server.
+
+8)Check the jars availability,if not add via buildpath.
+
+9)Add hibernate jar files in lib folder under webb content.
+
+10)Enter data in servelet and link that to database which will be reflect in database.

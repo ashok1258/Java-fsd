@@ -1,0 +1,26 @@
+1. Start the application.
+2. Initialize the list.
+3. Prompt the user to log in with a username and password.
+4. Validate the username and password. If invalid, go back to step 3.
+5. If the login is successful, display the main menu with options.
+6. Based on the user's input, perform the corresponding action
+     • If the user selects 1. Update Password go to step -7
+     • If the user selects 2. View Seating Arrangement go to step -8
+     • If the user selects 3. Book Ticket go to step -9
+     • If the user selects 4. Check Booking Status go to step -10
+     • If the user selects 5. Logout go to step -11
+7.Enter old password to confirm the user
+  Enter new password 
+  Re-enter new pasword and save it.
+8.First user needs to enter date and time of the movie they want to book.
+  Then it checks ,if tickets are available on the above date 
+  if tickets are not available it doesnt show the seat no on that date.
+9.you have to enter date and time of the movie
+  You have to select the seating category as our wish
+  Then have to enter seat no
+  If seat is available ,then it will be booked with respective fare charges deducting.
+10.You have to select date and time
+   If booking was succesful,then in seat availability ,that seat won't be shown.
+   Incase if booking was not succesful, the seat number is shown under seating availability.
+11.After completing the process,if we wish to logout from application
+   CHOOSE LOGOUT ,then you will be loggedout from application. 

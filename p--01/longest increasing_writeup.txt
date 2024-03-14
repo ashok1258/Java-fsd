@@ -1,0 +1,6 @@
+1)open IDE and create afile.
+2) create an array with length n.
+3)do looping for each element in array from left to right ,find maximum value .
+4)if maximum value is found ,enter into next level with i++.
+5) repeat above 2 steps until we reach to end of array.
+6)At last of arra we will find maaximum value of array.

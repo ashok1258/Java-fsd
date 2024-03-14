@@ -1,0 +1,25 @@
+1) Start and open your IDLE
+2)import the pages needed and create a public class and implement main method
+3)write a try block for handling the exception
+4)create file in try block. and create one method 
+5)check if the proccess is in correct path or not.
+6)if file is created succesfully we print "FILE CREATED SUCESSFULLY".
+7)if not we use ifelse block and say not created
+8)if the file is already existin device ,it printd "FILE ALEREADY EXIST'.
+9)end the else blocks and catch block with ome message.
+
+
+// write ,read and append a file
+
+1)creae a publc class and main method.
+2)start try catch blocks to exception handling
+3)inside try write a file with one method(write())
+4)close writer obj using close()
+5)end try block
+6)catch block gives message as exception handled
+
+//delete file
+
+1)start a fileand name it with a name.
+2)write if statement with some condition and if it matches delete the file
+3)if file not match with condition eecute it as "deletion atempt was failed due to file not found".
